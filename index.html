@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Falcon Basketball Club • OABCIG</title>
-  <meta name="description" content="Official website for the OABCIG Falcon Basketball Club — schedules, roster, stats, youth club, and more." />
+  <meta name="description" content="Official website for the Falcon Basketball Club — schedules, information, signup, and more." />
   <!-- Tailwind CSS via CDN (no build step needed) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,20 +99,21 @@
     </section>
 
     <!-- SCHEDULE -->
-    <section id="schedule" class="page">
+<section id="schedule" class="page">
   <div class="card">
     <h3 class="text-2xl font-bold mb-2">Youth Saturday Skills Schedule</h3>
     <p class="text-sm text-neutral-600 mb-4">
-      Same format each date listed below. <strong>No session the Saturday of Thanksgiving.</strong>
+      Same format each date listed below.
+      <strong>No session the Saturday of Thanksgiving.</strong>
       <strong>January is off</strong> for Rec League games. Resume in February. Final session noted.
     </p>
+
     <a href="#schedule" onclick="printSchedule(); return false;"
-   class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold hover:bg-purple-50">
-  🖨️ Printable Schedule (PDF)
-</a>
+       class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold hover:bg-purple-50">
+      🖨️ Printable Schedule (PDF)
+    </a>
 
-
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto mt-4">
       <table class="w-full text-sm border-collapse">
         <thead class="bg-purple-700 text-white">
           <tr>
@@ -322,106 +323,10 @@
 
           <!-- FEB 28 FINAL -->
           <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Feb 28</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+            <td class="py-2 px-3" rowspan
 
-  <div class="card mt-8">
-    <h3 class="text-xl font-bold mb-2">Add to Calendar (optional)</h3>
-    <p class="text-sm text-neutral-600 mb-3">
-      If you share a public Google Calendar, paste the iframe embed here and families can subscribe.
-    </p>
-    <div class="aspect-video w-full bg-neutral-100 grid place-content-center text-neutral-500 rounded-xl">
-      Calendar Embed
-    </div>
-  </div>
-</section>
 
-    
-    <!-- ROSTER -->
-    <section id="roster" class="page">
-      <div class="card">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-lg font-semibold">2025 Roster</h3>
-          <span class="badge">Sample</span>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="rounded-xl border p-4"><div class="font-semibold">#2 K. Smith — G</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-          <div class="rounded-xl border p-4"><div class="font-semibold">#4 J. Lee — G</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-          <div class="rounded-xl border p-4"><div class="font-semibold">#10 B. Johnson — F</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-          <div class="rounded-xl border p-4"><div class="font-semibold">#12 A. Hoffman — G/F</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-          <div class="rounded-xl border p-4"><div class="font-semibold">#20 R. Seuntjens — G</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-          <div class="rounded-xl border p-4"><div class="font-semibold">#24 M. Scott — F</div><div class="text-xs text-neutral-500">Height • Class • Notables</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section id="stats" class="page">
-      <div class="grid lg:grid-cols-2 gap-6">
-        <div class="card">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-semibold">Program Records</h3>
-            <span class="badge">Update</span>
-          </div>
-          <ul class="list-disc pl-5 space-y-2 text-sm">
-            <li>Single-Game Points — <em>—</em></li>
-            <li>Season 3PT Made — <em>—</em></li>
-            <li>Career Assists — <em>—</em></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="text-lg font-semibold mb-3">Team Stats (Season)</h3>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="text-left text-neutral-500 border-b">
-                  <th class="py-2">GP</th>
-                  <th class="py-2">PPG</th>
-                  <th class="py-2">RPG</th>
-                  <th class="py-2">APG</th>
-                  <th class="py-2">FG%</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b">
-                  <td class="py-2">0</td>
-                  <td>0.0</td>
-                  <td>0.0</td>
-                  <td>0.0</td>
-                  <td>0%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
+   
 
     <!-- FORMS -->
     <section id="forms" class="page">
