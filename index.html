@@ -1,356 +1,367 @@
 <!doctype html>
 <html lang="en">
-<header>
-  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 border-b">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-    <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Falcon Basketball Club logo" class="h-10 w-10 object-contain rounded" />
-      <div class="leading-tight">
-        <div class="font-black tracking-tight">Falcon Basketball Club</div>
-        <div class="text-xs text-neutral-500">OABCIG • Ida Grove, IA</div>
-      </div>
-    </div>
-    <nav class="hidden md:flex items-center gap-2 text-sm" id="nav-desktop"></nav>
-    <button id="menu-button" class="md:hidden inline-flex items-center justify-center rounded-xl border px-3 py-2">Menu</button>
-  </div>
-  <div id="nav-mobile" class="md:hidden pb-3 grid grid-cols-2 gap-2 hidden"></div>
-</header>
-<body class="min-h-screen bg-neutral-50 text-neutral-900">
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 border-b">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <<div class="flex items-center gap-3">
-  <img src="logo.png" alt="Falcon Basketball Club logo"
-       class="h-10 w-10 object-contain rounded" />
-  <div class="leading-tight">
-    <div class="font-black tracking-tight">Falcon Basketball Club</div>
-    <div class="text-xs text-neutral-500">OABCIG • Ida Grove, IA</div>
-  </div>
-</div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Falcon Basketball Club • OABCIG</title>
+  <meta name="description" content="Falcon Basketball Club — youth skills, schedule, signup, and info." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-        <nav class="hidden md:flex items-center gap-2 text-sm" id="nav-desktop"></nav>
-        <button id="menu-button" class="md:hidden inline-flex items-center justify-center rounded-xl border px-3 py-2">Menu</button>
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .card{border-radius:1rem;box-shadow:0 1px 2px rgba(0,0,0,.04);background:#fff;padding:1.25rem;border:1px solid #e5e7eb}
+    .badge{display:inline-flex;align-items:center;border-radius:9999px;border:1px solid #e5e7eb;padding:.25rem .75rem;font-size:.75rem;font-weight:600}
+    section.page{display:none}
+    section.page.active{display:block}
+    /* Print only the schedule section */
+    @media print{
+      @page{margin:12mm}
+      body *{visibility:hidden}
+      #schedule, #schedule *{visibility:visible}
+      #schedule{position:absolute;left:0;top:0;width:100%}
+      header, #hero, footer{display:none !important}
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-50 text-neutral-900">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <!-- Upload logo.png to repo root -->
+        <img src="logo.png" alt="Falcon Basketball Club logo" class="h-12 w-12 object-contain rounded">
+        <div class="leading-tight">
+          <div class="text-lg md:text-xl font-black tracking-tight">Falcon Basketball Club</div>
+          <div class="text-xs md:text-sm text-neutral-600">OABCIG • Ida Grove, IA</div>
+        </div>
       </div>
-      <div id="nav-mobile" class="md:hidden pb-3 grid grid-cols-2 gap-2 hidden"></div>
+      <nav id="nav-desktop" class="hidden md:flex items-center gap-2 text-sm"></nav>
+      <button id="menu-button" class="md:hidden inline-flex items-center justify-center rounded-xl border px-3 py-2">
+        Menu
+      </button>
     </div>
+    <div id="nav-mobile" class="md:hidden pb-3 grid grid-cols-2 gap-2 hidden px-4"></div>
   </header>
 
   <!-- HERO (Home only) -->
-  <div id="hero" class="relative overflow-hidden">
+  <section id="hero" class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-purple-800 via-purple-700 to-black"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative py-16 md:py-24 text-white">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-white">
       <div class="max-w-3xl">
         <span class="badge">Family • Fundamentals • Falcon Pride</span>
         <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.05] mt-4">
           More Than Basketball — It’s Family.
-        </h1> <a href="#youth" class="px-5 py-3 rounded-xl border border-white/70 text-white font-semibold">
-  Join Youth Club
-<p class="mt-4 text-lg text-white/90">Building skills, character, and community through the game we love.</p>
-<div class="mt-6 flex flex-wrap gap-3">
-  <a href="#schedule" class="px-5 py-3 rounded-xl bg-white text-purple-800 font-semibold shadow">View Schedule</a>
-  <a href="#youth" class="px-5 py-3 rounded-xl border border-white/70 text-white font-semibold">Join Youth Club</a>
-</div>
-       </div>
+        </h1>
+        <p class="mt-4 text-lg text-white/90">
+          Building skills, character, and community through the game we love.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#schedule" class="px-5 py-3 rounded-xl bg-white text-purple-800 font-semibold shadow">View Schedule</a>
+          <a href="#youth" class="px-5 py-3 rounded-xl border border-white/70 text-white font-semibold">Join Youth Club</a>
+        </div>
       </div>
     </div>
     <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 h-48 w-[120%] rounded-[100%] bg-white/80 blur-3xl"></div>
-  </div>
+  </section>
 
-  <!-- PAGES -->
+  <!-- MAIN -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
+
     <!-- HOME -->
     <section id="home" class="page active">
-  <div class="grid md:grid-cols-3 gap-5">
-    <div class="card">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="text-lg font-semibold">Announcements</h3>
-        <span class="badge">New</span>
-      </div>
-      <ul class="list-disc pl-5 space-y-2 text-sm">
-        <li>Winter sign-ups are open through <strong>Dec 10</strong>.</li>
-        <li>Parent meeting: <strong>Nov 18</strong>, HS Commons, 6:30 PM.</li>
-        <li>Youth open gym Saturdays, 9–11 AM (HS Gym).</li>
-      </ul>
-    </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">Announcements</h3>
+            <span class="badge">New</span>
+          </div>
+          <ul class="list-disc pl-5 space-y-2 text-sm">
+            <li>Winter sign-ups are open through <strong>Dec 10</strong>.</li>
+            <li>Parent meeting: <strong>Nov 18</strong>, HS Commons, 6:30 PM.</li>
+            <li>Skills Saturdays as listed in the Schedule.</li>
+          </ul>
+        </div>
 
-    <div class="card">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="text-lg font-semibold">Next Event</h3>
-        <span class="badge">Youth</span>
-      </div>
-      <p class="text-sm">Skills sessions as posted on the Schedule tab.</p>
-    </div>
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">About the Club</h3>
+          </div>
+          <p class="text-sm leading-6">
+            Grades K–8. Fundamentals, small-sided games, and character development.
+            We focus on teamwork, discipline, work ethic, and respect.
+          </p>
+        </div>
 
-    <div class="card">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="text-lg font-semibold">Mission</h3>
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">Mission</h3>
+          </div>
+          <p class="text-sm leading-6">
+            Create a safe, encouraging environment where every young athlete can grow in skill, strength, and spirit.
+          </p>
+        </div>
       </div>
-      <p class="text-sm leading-6">
-        The Falcon Basketball Club is more than a program — it’s a family. We build character,
-        confidence, and community in a safe, encouraging environment.
-      </p>
-    </div>
-  </div>
-</section>
-
     </section>
 
-  <!-- SCHEDULE -->
-<section id="schedule" class="page">
-  <div class="card">
-    <h3 class="text-2xl font-bold mb-2">Youth Saturday Skills Schedule</h3>
-    <p class="text-sm text-neutral-600 mb-4">
-      Same format each date listed below.
-      <strong>No session the Saturday of Thanksgiving.</strong>
-      <strong>January is off</strong> for Rec League games. Resume in February. Final session noted.
-    </p>
+    <!-- SCHEDULE -->
+    <section id="schedule" class="page">
+      <div class="card">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-2xl font-bold">Youth Saturday Skills Schedule</h3>
+          <a href="#schedule" onclick="printSchedule();return false;"
+             class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold hover:bg-purple-50">
+            🖨️ Printable Schedule (PDF)
+          </a>
+        </div>
+        <p class="text-sm text-neutral-600 mb-4">
+          Same format each date listed below. <strong>No session the Saturday of Thanksgiving.</strong>
+          <strong>January is off</strong> for Rec League. Resume in February. Final session noted.
+        </p>
 
-    <a href="#schedule" onclick="printSchedule(); return false;"
-       class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border text-sm font-semibold hover:bg-purple-50">
-      🖨️ Printable Schedule (PDF)
-    </a>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead class="bg-purple-700 text-white">
+              <tr>
+                <th class="py-2 px-3 text-left">Date</th>
+                <th class="py-2 px-3 text-left">Location</th>
+                <th class="py-2 px-3 text-left">Grades</th>
+                <th class="py-2 px-3 text-left">Time</th>
+                <th class="py-2 px-3 text-left">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- NOV 17 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Nov 17</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-    <div class="overflow-x-auto mt-4">
-      <table class="w-full text-sm border-collapse">
-        <thead class="bg-purple-700 text-white">
-          <tr>
-            <th class="py-2 px-3 text-left">Date</th>
-            <th class="py-2 px-3 text-left">Location</th>
-            <th class="py-2 px-3 text-left">Grades</th>
-            <th class="py-2 px-3 text-left">Time</th>
-            <th class="py-2 px-3 text-left">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- NOV 17 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Nov 17</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- DEC 6 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Dec 6</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- DEC 6 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Dec 6</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- DEC 13 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Dec 13</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- DEC 13 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Dec 13</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- DEC 20 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Dec 20</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- DEC 20 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Dec 20</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- JAN OFF -->
+              <tr class="border-b bg-neutral-50">
+                <td class="py-2 px-3">January</td>
+                <td class="py-2 px-3" colspan="3">No Saturday skills sessions (Rec League games)</td>
+                <td class="py-2 px-3">OFF</td>
+              </tr>
 
-          <!-- JANUARY OFF -->
-          <tr class="border-b bg-neutral-50">
-            <td class="py-2 px-3">January</td>
-            <td class="py-2 px-3" colspan="3">No Saturday skills sessions (Rec League games)</td>
-            <td class="py-2 px-3">OFF</td>
-          </tr>
+              <!-- FEB 7 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Feb 7</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- FEB 7 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Feb 7</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- FEB 14 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Feb 14</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- FEB 14 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Feb 14</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
+              <!-- FEB 21 -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Feb 21</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3">—</td>
+              </tr>
 
-          <!-- FEB 21 -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Feb 21</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3">—</td>
-          </tr>
-
-          <!-- FEB 28 FINAL -->
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3" rowspan="4">Feb 28</td>
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">K–1</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Elementary Gym</td>
-            <td class="py-2 px-3">2–3</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="border-b hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">4–6</td>
-            <td class="py-2 px-3">8:00–9:15 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-          <tr class="hover:bg-purple-50">
-            <td class="py-2 px-3">Rec Center Gym</td>
-            <td class="py-2 px-3">7–8</td>
-            <td class="py-2 px-3">9:30–11:00 AM</td>
-            <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-   
+              <!-- FEB 28 FINAL -->
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3" rowspan="4">Feb 28</td>
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">K–1</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Elementary Gym</td>
+                <td class="py-2 px-3">2–3</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">4–6</td>
+                <td class="py-2 px-3">8:00–9:15 AM</td>
+                <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
+              </tr>
+              <tr class="hover:bg-purple-50">
+                <td class="py-2 px-3">Rec Center Gym</td>
+                <td class="py-2 px-3">7–8</td>
+                <td class="py-2 px-3">9:30–11:00 AM</td>
+                <td class="py-2 px-3"><strong>Final Skills Session</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
     <!-- FORMS -->
     <section id="forms" class="page">
@@ -366,8 +377,9 @@
         </div>
         <div class="card">
           <h3 class="text-lg font-semibold mb-3">Registration</h3>
-          <p class="text-sm">Embed your Microsoft/Google Form here for youth signups, camps, or fundraising.</p>
-          <div class="mt-3 aspect-video w-full bg-neutral-100 rounded-xl grid place-content-center text-neutral-500">
+          <p class="text-sm">Embed your Google/Microsoft Form below for online signups.</p>
+          <div class="mt-3 rounded-xl overflow-hidden bg-neutral-100 aspect-[4/3] grid place-content-center text-neutral-500">
+            <!-- Paste your Google Forms EMBED iframe here -->
             Form Embed
           </div>
         </div>
@@ -380,12 +392,8 @@
         <h3 class="text-lg font-semibold mb-3">Coaches Blog</h3>
         <div class="space-y-4 text-sm leading-6">
           <article>
-            <h4 class="font-semibold">Welcome to the 2025 Season</h4>
-            <p class="text-neutral-700">Use this space to share philosophy, weekly updates, and highlights.</p>
-          </article>
-          <article>
-            <h4 class="font-semibold">Horns Motion – What We Value</h4>
-            <p class="text-neutral-700">Quick hits on spacing, pace, and reads to help parents and players follow along.</p>
+            <h4 class="font-semibold">Welcome to the Season</h4>
+            <p class="text-neutral-700">Use this space for updates, philosophy, and highlights.</p>
           </article>
         </div>
       </div>
@@ -396,9 +404,7 @@
       <div class="grid md:grid-cols-2 gap-6">
         <div class="card">
           <h3 class="text-lg font-semibold mb-3">Highlights</h3>
-          <div class="aspect-video rounded-xl bg-neutral-100 grid place-content-center text-neutral-500">
-            Hudl/YouTube Embed
-          </div>
+          <div class="aspect-video rounded-xl bg-neutral-100 grid place-content-center text-neutral-500">Hudl/YouTube Embed</div>
         </div>
         <div class="card">
           <h3 class="text-lg font-semibold mb-3">Photo Gallery</h3>
@@ -414,124 +420,131 @@
       </div>
     </section>
 
-   <!-- YOUTH -->
-<section id="youth" class="page">
-  <div class="grid lg:grid-cols-3 gap-6">
-    <div class="card lg:col-span-1">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="text-lg font-semibold">Join the Falcon Basketball Club</h3>
-        <span class="badge">Youth</span>
+    <!-- YOUTH -->
+    <section id="youth" class="page">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="card lg:col-span-1">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">Join the Youth Club</h3>
+            <span class="badge">Youth</span>
+          </div>
+          <p class="text-sm leading-6">
+            Grades K–8. Fundamentals, small-sided games, and character development.
+          </p>
+          <div class="mt-4 space-y-2 text-sm">
+            <div><strong>Typical Saturday windows</strong>: K–1 (8:00–9:15), 2–3 (9:30–11:00), 4–6 (8:00–9:15), 7–8 (9:30–11:00)</div>
+            <div><strong>January</strong>: off for Rec League. Sessions resume in February.</div>
+          </div>
+          <hr class="my-4">
+          <p class="text-xs text-neutral-500">
+            By submitting, you acknowledge gym rules. Media may be used for team promotion if consented.
+          </p>
+        </div>
+
+        <div class="card lg:col-span-2">
+          <h3 class="text-lg font-semibold mb-3">Signup Form</h3>
+          <!-- Replace src with your Google Forms EMBED URL -->
+          <div class="rounded-xl overflow-hidden">
+            <iframe src="" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+                    title="Falcon Basketball Club Youth Signup"></iframe>
+          </div>
+          <div class="mt-3 text-sm">
+            Prefer paper? Use the <a class="underline text-purple-700" href="#forms">printable form</a>.
+          </div>
+        </div>
       </div>
-      <p class="text-sm leading-6">
-        Grades K–8. Fundamentals, small-sided games, and character development. Volunteer coaches welcome
-        (background checks required).
-      </p>
-      <div class="mt-4 space-y-2 text-sm">
-        <div><strong>Typical Saturday windows</strong>: K–1 (8:00–9:15), 2–3 (9:30–11:00), 4–6 (8:00–9:15), 7–8 (9:30–11:00)</div>
-        <div><strong>January</strong>: off for Rec League. Sessions resume in February.</div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+      <div class="card">
+        <h3 class="text-lg font-semibold mb-2">Contact</h3>
+        <p class="text-sm">Coach Harms — <a class="underline text-purple-700" href="mailto:jharms@oabcig.org">jharms@oabcig.org</a></p>
       </div>
-      <hr class="my-4">
-      <p class="text-xs text-neutral-500">
-        By submitting, you acknowledge gym rules and agree that photos/video from events may be used for team promotion if consented.
-      </p>
-    </div>
+    </section>
 
-    <div class="card lg:col-span-2">
-      <h3 class="text-lg font-semibold mb-3">Signup Form</h3>
-      <!-- Replace the src below with your Google Forms embed URL -->
-      <div class="rounded-xl overflow-hidden">
-        <iframe src="PASTE_GOOGLE_FORMS_EMBED_URL_HERE"
-                width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
-                title="Falcon Basketball Club Youth Signup">Loading…</iframe>
-      </div>
-      <div class="mt-3 text-sm">
-        Prefer paper? Use the <a class="underline text-purple-700" href="#forms">printable form</a>.
-      </div>
-    </div>
-  </div>
-</section>
-    <script>
-  // Build nav
-  const SECTIONS = [
-    { id: "home", label: "Home" },
-    { id: "schedule", label: "Schedule" },
-    { id: "roster", label: "Roster" },
-    { id: "stats", label: "Stats & Record Book" },
-    { id: "forms", label: "Forms" },
-    { id: "blog", label: "Coaches Blog" },
-    { id: "gallery", label: "Photo/Video" },
-    { id: "youth", label: "Youth Club" },
-    { id: "contact", label: "Contact" },
-  ];
+  </main>
 
-  const navDesktop = document.getElementById("nav-desktop");
-  const navMobile  = document.getElementById("nav-mobile");
-  const menuBtn    = document.getElementById("menu-button");
+  <footer class="mt-12 py-8 text-center text-xs text-neutral-500">
+    © <span id="year"></span> Falcon Basketball Club
+  </footer>
 
-  function renderNav() {
-    if (navDesktop) {
-      navDesktop.innerHTML = SECTIONS.map(s =>
-        `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
-      ).join("");
-    }
-    if (navMobile) {
-      navMobile.innerHTML = SECTIONS.map(s =>
-        `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
-      ).join("");
-    }
-    [...document.querySelectorAll('#nav-desktop button, #nav-mobile button')]
-      .forEach(btn => btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-target");
-        setActive(target);
-        if (navMobile) navMobile.classList.add("hidden");
-      }));
-  }
+  <script>
+    const SECTIONS = [
+      { id:"home", label:"Home" },
+      { id:"schedule", label:"Schedule" },
+      { id:"forms", label:"Forms" },
+      { id:"blog", label:"Coaches Blog" },
+      { id:"gallery", label:"Photo/Video" },
+      { id:"youth", label:"Youth Club" },
+      { id:"contact", label:"Contact" },
+    ];
 
-  function setActive(id) {
-    document.querySelectorAll("section.page").forEach(sec => sec.classList.remove("active"));
-    const el = document.getElementById(id);
-    if (el) el.classList.add("active");
+    const navDesktop = document.getElementById("nav-desktop");
+    const navMobile  = document.getElementById("nav-mobile");
+    const menuBtn    = document.getElementById("menu-button");
 
-    const hero = document.getElementById("hero");
-    if (hero) hero.style.display = (id === "home") ? "block" : "none";
-
-    document.querySelectorAll("#nav-desktop button").forEach(b => {
-      if (b.getAttribute("data-target") === id) {
-        b.classList.add("bg-purple-700","text-white","shadow");
-        b.classList.remove("hover:bg-purple-50");
-      } else {
-        b.classList.remove("bg-purple-700","text-white","shadow");
-        b.classList.add("hover:bg-purple-50");
+    function renderNav(){
+      if(navDesktop){
+        navDesktop.innerHTML = SECTIONS.map(s =>
+          `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+        ).join("");
       }
-    });
-  }
-
-  if (menuBtn && navMobile) {
-    menuBtn.addEventListener("click", () => navMobile.classList.toggle("hidden"));
-  }
-
-  function initialRoute() {
-    const hash = window.location.hash.replace("#","");
-    const first = SECTIONS[0].id;
-    setActive(hash || first);
-  }
-  window.addEventListener("hashchange", initialRoute);
-
-  // Print only the schedule
-  function printSchedule() {
-    if (location.hash !== "#schedule") {
-      location.hash = "#schedule";
-      setTimeout(() => window.print(), 200);
-    } else {
-      window.print();
+      if(navMobile){
+        navMobile.innerHTML = SECTIONS.map(s =>
+          `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+        ).join("");
+      }
+      [...document.querySelectorAll('#nav-desktop button, #nav-mobile button')].forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const target = btn.getAttribute("data-target");
+          setActive(target);
+          if(navMobile) navMobile.classList.add("hidden");
+        });
+      });
     }
-  }
 
-  // Init
-  renderNav();
-  initialRoute();
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-</script>
+    function setActive(id){
+      document.querySelectorAll("section.page").forEach(sec=>sec.classList.remove("active"));
+      const el = document.getElementById(id);
+      if(el) el.classList.add("active");
+
+      const hero = document.getElementById("hero");
+      if(hero) hero.style.display = (id==="home") ? "block" : "none";
+
+      document.querySelectorAll("#nav-desktop button").forEach(b=>{
+        if(b.getAttribute("data-target")===id){
+          b.classList.add("bg-purple-700","text-white","shadow");
+          b.classList.remove("hover:bg-purple-50");
+        }else{
+          b.classList.remove("bg-purple-700","text-white","shadow");
+          b.classList.add("hover:bg-purple-50");
+        }
+      });
+      location.hash = id;
+    }
+
+    if(menuBtn && navMobile){
+      menuBtn.addEventListener("click", ()=> navMobile.classList.toggle("hidden"));
+    }
+
+    function initialRoute(){
+      const id = (location.hash||"#home").replace("#","");
+      setActive(id);
+    }
+    window.addEventListener("hashchange", initialRoute);
+
+    function printSchedule(){
+      if(location.hash !== "#schedule"){ location.hash = "#schedule"; setTimeout(()=>window.print(),200); }
+      else { window.print(); }
+    }
+
+    renderNav();
+    initialRoute();
+    const y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
+
 
 
