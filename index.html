@@ -520,23 +520,37 @@
     }
 
     function setActive(id){
-      document.querySelectorAll("section.page").forEach(sec=>sec.classList.remove("active"));
-      const el = document.getElementById(id);
-      if(el) el.classList.add("active");
+    function setActive(id){
+  // show only the requested page
+  document.querySelectorAll("section.page").forEach(sec=>sec.classList.remove("active"));
+  const el = document.getElementById(id);
+  if(el) el.classList.add("active");
 
-      const hero = document.getElementById("hero");
-      if(hero) hero.style.display = (id==="home") ? "block" : "none";
+  // hero on home only
+  const hero = document.getElementById("hero");
+  const main = document.querySelector("main");
+  const isHome = (id === "home");
+  if (hero) hero.style.display = isHome ? "block" : "none";
+  if (main){
+    // negative margin only when hero is visible
+    main.classList.toggle("-mt-12", isHome);
+  }
 
-      document.querySelectorAll("#nav-desktop button").forEach(b=>{
-        if(b.getAttribute("data-target")===id){
-          b.classList.add("bg-purple-700","text-white","shadow");
-          b.classList.remove("hover:bg-purple-50");
-        }else{
-          b.classList.remove("bg-purple-700","text-white","shadow");
-          b.classList.add("hover:bg-purple-50");
-        }
-      });
-      location.hash = id;
+  // nav highlighting
+  document.querySelectorAll("#nav-desktop button").forEach(b=>{
+    if(b.getAttribute("data-target")===id){
+      b.classList.add("bg-purple-700","text-white","shadow");
+      b.classList.remove("hover:bg-purple-50");
+    }else{
+      b.classList.remove("bg-purple-700","text-white","shadow");
+      b.classList.add("hover:bg-purple-50");
+    }
+  });
+
+  // keep hash in sync
+  location.hash = id;
+}
+
     }
 
     if(menuBtn && navMobile){
