@@ -1,25 +1,20 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Falcon Basketball Club • OABCIG</title>
-  <meta name="description" content="Official website for the Falcon Basketball Club — schedules, information, signup, and more." />
-  <!-- Tailwind CSS via CDN (no build step needed) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root { --purple: #6d28d9; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
-    .card { border-radius: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); background: rgba(255,255,255,.9); padding: 1.25rem; border: 1px solid #e5e7eb; }
-    .badge { display:inline-flex; align-items:center; border-radius:9999px; border:1px solid #e5e7eb; padding:.25rem .75rem; font-size:.75rem; font-weight:600; }
-    /* Hide all sections by default; show the one with .active */
-    section.page { display: none; }
-    section.page.active { display: block; }
-  </style>
-</head>
+<header>
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 border-b">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="Falcon Basketball Club logo" class="h-10 w-10 object-contain rounded" />
+      <div class="leading-tight">
+        <div class="font-black tracking-tight">Falcon Basketball Club</div>
+        <div class="text-xs text-neutral-500">OABCIG • Ida Grove, IA</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-2 text-sm" id="nav-desktop"></nav>
+    <button id="menu-button" class="md:hidden inline-flex items-center justify-center rounded-xl border px-3 py-2">Menu</button>
+  </div>
+  <div id="nav-mobile" class="md:hidden pb-3 grid grid-cols-2 gap-2 hidden"></div>
+</header>
 <body class="min-h-screen bg-neutral-50 text-neutral-900">
   <!-- NAV -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/60 border-b">
@@ -50,17 +45,12 @@
           More Than Basketball — It’s Family.
         </h1> <a href="#youth" class="px-5 py-3 rounded-xl border border-white/70 text-white font-semibold">
   Join Youth Club
-</a>
-
-        <p class="mt-4 text-lg text-white/90">Building skills, character, and community through the game we love.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#schedule" class="px-5 py-3 rounded-xl bg-white text-purple-800 font-semibold shadow">View Schedule</a>
-         <div class="mt-6 flex flex-wrap gap-3">
+<p class="mt-4 text-lg text-white/90">Building skills, character, and community through the game we love.</p>
+<div class="mt-6 flex flex-wrap gap-3">
   <a href="#schedule" class="px-5 py-3 rounded-xl bg-white text-purple-800 font-semibold shadow">View Schedule</a>
   <a href="#youth" class="px-5 py-3 rounded-xl border border-white/70 text-white font-semibold">Join Youth Club</a>
 </div>
-
-        </div>
+       </div>
       </div>
     </div>
     <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 h-48 w-[120%] rounded-[100%] bg-white/80 blur-3xl"></div>
@@ -70,29 +60,39 @@
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
     <!-- HOME -->
     <section id="home" class="page active">
-      <div class="grid md:grid-cols-3 gap-5">
-        <div class="card">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-semibold">Announcements</h3>
-            <span class="badge">New</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-semibold">Next Game</h3>
-            <span class="badge">Varsity</span>
-          </div>
-        <div class="card">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-semibold">Mission</h3>
-          </div>
-          <p class="text-sm leading-6">
-            The Falcon Basketball Club is more than a program — it’s a family. We believe basketball is a powerful tool
-            for building character, confidence, and community. Our mission is to create a safe and encouraging environment
-            where every young athlete can grow in skill, strength, and spirit.
-          </p>
-        </div>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="card">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-semibold">Announcements</h3>
+        <span class="badge">New</span>
       </div>
+      <ul class="list-disc pl-5 space-y-2 text-sm">
+        <li>Winter sign-ups are open through <strong>Dec 10</strong>.</li>
+        <li>Parent meeting: <strong>Nov 18</strong>, HS Commons, 6:30 PM.</li>
+        <li>Youth open gym Saturdays, 9–11 AM (HS Gym).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-semibold">Next Event</h3>
+        <span class="badge">Youth</span>
+      </div>
+      <p class="text-sm">Skills sessions as posted on the Schedule tab.</p>
+    </div>
+
+    <div class="card">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-semibold">Mission</h3>
+      </div>
+      <p class="text-sm leading-6">
+        The Falcon Basketball Club is more than a program — it’s a family. We build character,
+        confidence, and community in a safe, encouraging environment.
+      </p>
+    </div>
+  </div>
+</section>
+
     </section>
 
   <!-- SCHEDULE -->
