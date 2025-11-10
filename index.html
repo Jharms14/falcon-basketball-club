@@ -485,47 +485,95 @@
   </footer>
 
 <script>
-  // Nav model
+document.addEventListener("DOMContentLoaded", function () {
+  // ------- Model -------
   const SECTIONS = [
-    { id:"home",     label:"Home" },
-    { id:"schedule", label:"Schedule" },
-    { id:"forms",    label:"Forms" },
-    { id:"blog",     label:"Coaches Blog" },
-    { id:"gallery",  label:"Photo/Video" },
-    { id:"youth",    label:"Youth Club" },
-    { id:"contact",  label:"Contact" },
+    { id: "home",     label: "Home" },
+    { id: "schedule", label: "Schedule" },
+    { id: "forms",    label: "Forms" },
+    { id: "blog",     label: "Coaches Blog" },
+    { id: "gallery",  label: "Photo/Video" },
+    { id: "youth",    label: "Youth Club" },
+    { id: "contact",  label: "Contact" },
   ];
 
   const navDesktop = document.getElementById("nav-desktop");
   const navMobile  = document.getElementById("nav-mobile");
   const menuBtn    = document.getElementById("menu-button");
+  const hero       = document.getElementById("hero");
+  const mainEl     = document.querySelector("main");
 
-  // Build nav buttons
-  function renderNav(){
-    if (navDesktop){
+  // ------- Build nav -------
+  function renderNav() {
+    if (navDesktop) {
       navDesktop.innerHTML = SECTIONS.map(s =>
         `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
       ).join("");
     }
-    if (navMobile){
+    if (navMobile) {
       navMobile.innerHTML = SECTIONS.map(s =>
         `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
       ).join("");
     }
-    // wire clicks
-    document.querySelectorAll('#nav-desktop button, #nav-mobile button').forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const target = btn.getAttribute("data-target");
-        setActive(target);
+    document.querySelectorAll('#nav-desktop button, #nav-mobile button').forEach(btn => {
+      btn.addEventListener("click", () => {
+        setActive(btn.getAttribute("data-target"));
         if (navMobile) navMobile.classList.add("hidden");
       });
     });
   }
 
-  // Show one page, control hero, fix header overlap
-  function setActive(id){
-    // sections
-    document.querySelectorAll("section.page").fo
+  // ------- Router -------
+  function setActive(id) {
+    // pages
+    document.querySelectorAll("section.page").forEach(sec => sec.classList.remove("active"));
+    const page = document.getElementById(id);
+    if (page) page.classList.add("active");
+
+    // hero only on home
+    const isHome = id === "home";
+    if (hero) hero.style.display = isHome ? "block" : "none";
+    if (mainEl) mainEl.classList.toggle("-mt-12", isHome);
+
+    // nav highlight
+    document.querySelectorAll("#nav-desktop button").forEach(b => {
+      const on = b.getAttribute("data-target") === id;
+      b.classList.toggle("bg-purple-700", on);
+      b.classList.toggle("text-white", on);
+      b.classList.toggle("shadow", on);
+      b.classList.toggle("hover:bg-purple-50", !on);
+    });
+
+    // sync hash (avoid infinite loop)
+    if (location.hash !== "#" + id) location.hash = id;
+  }
+
+  function initialRoute() {
+    const hash = (location.hash || "#home").slice(1);
+    const id = SECTIONS.some(s => s.id === hash) ? hash : "home";
+    setActive(id);
+  }
+
+  // ------- Mobile menu -------
+  if (menuBtn && navMobile) {
+    menuBtn.addEventListener("click", () => navMobile.classList.toggle("hidden"));
+  }
+
+  // ------- Print schedule button (global) -------
+  window.printSchedule = function () {
+    if (location.hash !== "#schedule") { location.hash = "#schedule"; setTimeout(() => window.print(), 200); }
+    else { window.print(); }
+  };
+
+  // ------- Boot -------
+  renderNav();
+  initialRoute();
+  window.addEventListener("hashchange", initialRoute);
+
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+</script>
 
 </body>
 </html>
