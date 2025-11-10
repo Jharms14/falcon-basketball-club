@@ -450,4 +450,88 @@
     </div>
   </div>
 </section>
+    <script>
+  // Build nav
+  const SECTIONS = [
+    { id: "home", label: "Home" },
+    { id: "schedule", label: "Schedule" },
+    { id: "roster", label: "Roster" },
+    { id: "stats", label: "Stats & Record Book" },
+    { id: "forms", label: "Forms" },
+    { id: "blog", label: "Coaches Blog" },
+    { id: "gallery", label: "Photo/Video" },
+    { id: "youth", label: "Youth Club" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const navDesktop = document.getElementById("nav-desktop");
+  const navMobile  = document.getElementById("nav-mobile");
+  const menuBtn    = document.getElementById("menu-button");
+
+  function renderNav() {
+    if (navDesktop) {
+      navDesktop.innerHTML = SECTIONS.map(s =>
+        `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+      ).join("");
+    }
+    if (navMobile) {
+      navMobile.innerHTML = SECTIONS.map(s =>
+        `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+      ).join("");
+    }
+    [...document.querySelectorAll('#nav-desktop button, #nav-mobile button')]
+      .forEach(btn => btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-target");
+        setActive(target);
+        if (navMobile) navMobile.classList.add("hidden");
+      }));
+  }
+
+  function setActive(id) {
+    document.querySelectorAll("section.page").forEach(sec => sec.classList.remove("active"));
+    const el = document.getElementById(id);
+    if (el) el.classList.add("active");
+
+    const hero = document.getElementById("hero");
+    if (hero) hero.style.display = (id === "home") ? "block" : "none";
+
+    document.querySelectorAll("#nav-desktop button").forEach(b => {
+      if (b.getAttribute("data-target") === id) {
+        b.classList.add("bg-purple-700","text-white","shadow");
+        b.classList.remove("hover:bg-purple-50");
+      } else {
+        b.classList.remove("bg-purple-700","text-white","shadow");
+        b.classList.add("hover:bg-purple-50");
+      }
+    });
+  }
+
+  if (menuBtn && navMobile) {
+    menuBtn.addEventListener("click", () => navMobile.classList.toggle("hidden"));
+  }
+
+  function initialRoute() {
+    const hash = window.location.hash.replace("#","");
+    const first = SECTIONS[0].id;
+    setActive(hash || first);
+  }
+  window.addEventListener("hashchange", initialRoute);
+
+  // Print only the schedule
+  function printSchedule() {
+    if (location.hash !== "#schedule") {
+      location.hash = "#schedule";
+      setTimeout(() => window.print(), 200);
+    } else {
+      window.print();
+    }
+  }
+
+  // Init
+  renderNav();
+  initialRoute();
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
 
