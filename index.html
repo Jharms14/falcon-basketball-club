@@ -519,7 +519,7 @@
       });
     }
 
-    function setActive(id){
+ function setActive(id){
   // show only the requested page
   document.querySelectorAll("section.page").forEach(sec=>sec.classList.remove("active"));
   const el = document.getElementById(id);
@@ -548,6 +548,8 @@
 
   // keep hash in sync
   location.hash = id;
+}
+
 }
 
     }
