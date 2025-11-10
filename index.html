@@ -484,95 +484,49 @@
     © <span id="year"></span> Falcon Basketball Club
   </footer>
 
-  <script>
-    const SECTIONS = [
-      { id:"home", label:"Home" },
-      { id:"schedule", label:"Schedule" },
-      { id:"forms", label:"Forms" },
-      { id:"blog", label:"Coaches Blog" },
-      { id:"gallery", label:"Photo/Video" },
-      { id:"youth", label:"Youth Club" },
-      { id:"contact", label:"Contact" },
-    ];
+<script>
+  // Nav model
+  const SECTIONS = [
+    { id:"home",     label:"Home" },
+    { id:"schedule", label:"Schedule" },
+    { id:"forms",    label:"Forms" },
+    { id:"blog",     label:"Coaches Blog" },
+    { id:"gallery",  label:"Photo/Video" },
+    { id:"youth",    label:"Youth Club" },
+    { id:"contact",  label:"Contact" },
+  ];
 
-    const navDesktop = document.getElementById("nav-desktop");
-    const navMobile  = document.getElementById("nav-mobile");
-    const menuBtn    = document.getElementById("menu-button");
+  const navDesktop = document.getElementById("nav-desktop");
+  const navMobile  = document.getElementById("nav-mobile");
+  const menuBtn    = document.getElementById("menu-button");
 
-    function renderNav(){
-      if(navDesktop){
-        navDesktop.innerHTML = SECTIONS.map(s =>
-          `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
-        ).join("");
-      }
-      if(navMobile){
-        navMobile.innerHTML = SECTIONS.map(s =>
-          `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
-        ).join("");
-      }
-      [...document.querySelectorAll('#nav-desktop button, #nav-mobile button')].forEach(btn=>{
-        btn.addEventListener("click", ()=>{
-          const target = btn.getAttribute("data-target");
-          setActive(target);
-          if(navMobile) navMobile.classList.add("hidden");
-        });
-      });
+  // Build nav buttons
+  function renderNav(){
+    if (navDesktop){
+      navDesktop.innerHTML = SECTIONS.map(s =>
+        `<button class="px-3 py-2 rounded-xl transition hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+      ).join("");
     }
-
- function setActive(id){
-  // show only the requested page
-  document.querySelectorAll("section.page").forEach(sec=>sec.classList.remove("active"));
-  const el = document.getElementById(id);
-  if(el) el.classList.add("active");
-
-  // hero on home only
-  const hero = document.getElementById("hero");
-  const main = document.querySelector("main");
-  const isHome = (id === "home");
-  if (hero) hero.style.display = isHome ? "block" : "none";
-  if (main){
-    // negative margin only when hero is visible
-    main.classList.toggle("-mt-12", isHome);
+    if (navMobile){
+      navMobile.innerHTML = SECTIONS.map(s =>
+        `<button class="px-3 py-2 rounded-xl border text-left bg-white hover:bg-purple-50" data-target="${s.id}">${s.label}</button>`
+      ).join("");
+    }
+    // wire clicks
+    document.querySelectorAll('#nav-desktop button, #nav-mobile button').forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const target = btn.getAttribute("data-target");
+        setActive(target);
+        if (navMobile) navMobile.classList.add("hidden");
+      });
+    });
   }
 
-  // nav highlighting
-  document.querySelectorAll("#nav-desktop button").forEach(b=>{
-    if(b.getAttribute("data-target")===id){
-      b.classList.add("bg-purple-700","text-white","shadow");
-      b.classList.remove("hover:bg-purple-50");
-    }else{
-      b.classList.remove("bg-purple-700","text-white","shadow");
-      b.classList.add("hover:bg-purple-50");
-    }
-  });
+  // Show one page, control hero, fix header overlap
+  function setActive(id){
+    // sections
+    document.querySelectorAll("section.page").fo
 
-  // keep hash in sync
-  location.hash = id;
-}
-
-}
-
-    }
-
-    if(menuBtn && navMobile){
-      menuBtn.addEventListener("click", ()=> navMobile.classList.toggle("hidden"));
-    }
-
-    function initialRoute(){
-      const id = (location.hash||"#home").replace("#","");
-      setActive(id);
-    }
-    window.addEventListener("hashchange", initialRoute);
-
-    function printSchedule(){
-      if(location.hash !== "#schedule"){ location.hash = "#schedule"; setTimeout(()=>window.print(),200); }
-      else { window.print(); }
-    }
-
-    renderNav();
-    initialRoute();
-    const y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
-  </script>
 </body>
 </html>
 
