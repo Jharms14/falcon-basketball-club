@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Falcon Basketball Club – Drills & Workouts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- NAVBAR -->
+  <header class="bg-black text-white">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-black text-xl tracking-tight">
+        Falcon Basketball Club
+      </a>
+      <nav class="space-x-4 text-sm md:text-base">
+        <a href="index.html#about" class="hover:text-purple-300">About</a>
+        <a href="index.html#schedule" class="hover:text-purple-300">Schedule</a>
+        <a href="index.html#forms" class="hover:text-purple-300">Forms</a>
+        <a href="index.html#blog" class="hover:text-purple-300">Coaches Blog</a>
+        <a href="drills.html" class="text-purple-400 font-semibold">Drills &amp; Workouts</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-3xl md:text-4xl font-black mb-2">
+      Drills &amp; Workouts
+    </h1>
+    <p class="text-sm text-gray-600 mb-6">
+      Printable and viewable drills &amp; workouts for Falcon players and families.
+      Click “View” to open in the browser, or “Download” to save a copy.
+    </p>
+
+    <!-- DRILL LIST -->
+    <div class="grid gap-4 md:grid-cols-2">
+      <!-- Example drill card 1 -->
+      <article class="bg-white shadow rounded-xl p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="font-semibold text-lg">Ball-Handling Series (Daily)</h2>
+          <p class="text-sm text-gray-600 mt-1">
+            15–20 minute ball-handling routine players can do at home in a driveway or basement.
+          </p>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <a href="assets/drills/ball-handling-series.pdf" target="_blank"
+             class="text-sm underline">
+            View
+          </a>
+          <a href="assets/drills/ball-handling-series.pdf" download
+             class="text-sm underline">
+            Download
+          </a>
+        </div>
+      </article>
+
+      <!-- Example drill card 2 -->
+      <article class="bg-white shadow rounded-xl p-4 flex flex-col justify-between">
+        <div>
+          <h2 class="font-semibold text-lg">Form Shooting Routine</h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Warm-up and form-shooting progression to build consistent mechanics.
+          </p>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <a href="assets/drills/form-shooting-routine.pdf" target="_blank"
+             class="text-sm underline">
+            View
+          </a>
+          <a href="assets/drills/form-shooting-routine.pdf" download
+             class="text-sm underline">
+            Download
+          </a>
+        </div>
+      </article>
+
+      <!-- Add more cards here as you add PDFs -->
+    </div>
+
+    <!-- OPTIONAL: inline viewer for one “featured” PDF -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold mb-2">Featured Drill (Inline Viewer)</h2>
+      <p class="text-xs text-gray-600 mb-3">
+        This shows a PDF directly on the page. Players can scroll and print right from here.
+      </p>
+      <div class="bg-white shadow rounded-xl p-3">
+        <embed
+          src="assets/drills/ball-handling-series.pdf"
+          type="application/pdf"
+          class="w-full"
+          style="height: 600px;"
+        />
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 py-6 text-center text-xs text-gray-500">
+    © <span id="year"></span> Falcon Basketball Club • OABCIG
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
